@@ -1,1 +1,0 @@
-const music=document.getElementById('bgMusic');const btn=document.getElementById('musicBtn');btn.addEventListener('click',async()=>{if(music.paused){try{await music.play();btn.textContent='🔇 إيقاف الموسيقى'}catch(e){btn.textContent='🎵 اضغط للتشغيل'}}else{music.pause();btn.textContent='🎵 تشغيل الموسيقى'}});
