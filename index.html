@@ -1,6 +1,999 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>الزرازير | Discord Server</title><link rel="stylesheet" href="style.css"></head><body>
-<header><div class="logo">الزرازير</div><nav><a href="#home">الرئيسية</a><a href="#features">المميزات</a><a href="#join">الديسكورد</a></nav></header>
-<section class="hero" id="home"><div><div class="badge">DISCORD COMMUNITY</div><h1>مرحباً بك في <span>الزرازير</span></h1><p>مجتمع ديسكورد يجمع اللاعبين والأصدقاء في مكان واحد. انضم إلينا وكن جزءاً من مجتمعنا.</p><div class="buttons"><a class="btn discord" href="https://discord.gg/NR9bmYZP7" target="_blank">انضم إلى الديسكورد</a><a class="btn more" href="#features">اكتشف الموقع</a></div></div></section>
-<section id="features"><h2>لماذا الزرازير؟</h2><p class="section-text">كل ما تحتاجه في مجتمع واحد</p><div class="cards"><div class="card"><div class="icon">🎮</div><h3>مجتمع اللاعبين</h3><p>مكان يجمع اللاعبين للتواصل واللعب والاستمتاع مع الأصدقاء.</p></div><div class="card"><div class="icon">🛡️</div><h3>حماية وتنظيم</h3><p>نظام إدارة وتنظيم يساعد على إبقاء المجتمع مرتباً.</p></div><div class="card"><div class="icon">🔥</div><h3>فعاليات مستمرة</h3><p>شارك في الفعاليات والأنشطة واستمتع بأجواء المجتمع.</p></div></div></section>
-<section class="join" id="join"><h2>جاهز تنضم؟</h2><p class="section-text">اضغط على الزر وانضم إلى مجتمع الزرازير</p><a class="btn discord" href="https://discord.gg/NR9bmYZP7" target="_blank">دخول سيرفر Discord</a></section>
-<button id="musicBtn" class="music-btn">🎵 تشغيل الموسيقى</button><audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio><footer>© 2026 الزرازير — جميع الحقوق محفوظة</footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الزرازير | Discord Community</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #08090f;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ===== NAVBAR ===== */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background: rgba(8, 9, 15, 0.85);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #5865F2;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #5865F2;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 120px 20px 70px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(88,101,242,0.30),
+                    transparent 45%
+                ),
+                #08090f;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 18px;
+
+            border-radius: 30px;
+
+            color: #a7afff;
+
+            background: rgba(88,101,242,0.12);
+
+            border: 1px solid rgba(88,101,242,0.35);
+
+            font-size: 13px;
+
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 7vw, 75px);
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            color: #5865F2;
+        }
+
+        .hero p {
+            color: #999;
+            font-size: 19px;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        /* ===== BUTTONS ===== */
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .discord {
+            background: #5865F2;
+            color: white;
+        }
+
+        .discord:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 35px rgba(88,101,242,0.35);
+        }
+
+        .more {
+            color: white;
+
+            border: 1px solid #30303d;
+
+            background: #11121a;
+        }
+
+        .more:hover {
+            background: #181925;
+            transform: translateY(-3px);
+        }
+
+        /* ===== GENERAL SECTIONS ===== */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .section-title h2 span {
+            color: #5865F2;
+        }
+
+        .section-title p {
+            color: #888;
+        }
+
+        /* ===== FEATURES ===== */
+
+        .cards {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .card {
+            padding: 35px 25px;
+
+            background: #11121a;
+
+            border: 1px solid #242532;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            border-color: #5865F2;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #888;
+            line-height: 1.8;
+        }
+
+        /* ===== RULES ===== */
+
+        .rules {
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(88,101,242,0.12),
+                    transparent 40%
+                );
+        }
+
+        .rules-header {
+            text-align: center;
+
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+        }
+
+        .rules-badge {
+            display: inline-block;
+
+            padding: 7px 16px;
+
+            border-radius: 30px;
+
+            background: rgba(88,101,242,0.12);
+
+            border: 1px solid rgba(88,101,242,0.4);
+
+            color: #9da6ff;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .rules-header h2 {
+            font-size: 44px;
+
+            margin: 18px 0 12px;
+        }
+
+        .rules-header h2 span {
+            color: #5865F2;
+        }
+
+        .rules-header p {
+            color: #888;
+
+            line-height: 1.8;
+        }
+
+        .rules-grid {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .rule {
+            display: flex;
+
+            gap: 18px;
+
+            padding: 25px;
+
+            background: rgba(17,18,26,0.95);
+
+            border: 1px solid #292a38;
+
+            border-radius: 18px;
+
+            transition: 0.3s;
+        }
+
+        .rule:hover {
+            transform: translateY(-5px);
+
+            border-color: #5865F2;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .rule-number {
+            flex: 0 0 48px;
+
+            height: 48px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 13px;
+
+            background: linear-gradient(
+                135deg,
+                #5865F2,
+                #7b84ff
+            );
+
+            font-weight: bold;
+        }
+
+        .rule h3 {
+            margin-bottom: 8px;
+
+            font-size: 19px;
+        }
+
+        .rule p {
+            color: #888;
+
+            line-height: 1.8;
+        }
+
+        .rules-note {
+            max-width: 1050px;
+
+            margin: 25px auto 0;
+
+            padding: 20px 24px;
+
+            background: #101119;
+
+            border: 1px solid #30313e;
+
+            border-radius: 16px;
+        }
+
+        .rules-note strong {
+            display: block;
+
+            margin-bottom: 8px;
+        }
+
+        .rules-note p {
+            color: #888;
+
+            line-height: 1.7;
+        }
+
+        /* ===== JOIN ===== */
+
+        .join {
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(88,101,242,0.18),
+                    rgba(15,16,24,0.7)
+                );
+        }
+
+        .join h2 {
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+        .join p {
+            color: #888;
+
+            margin-bottom: 30px;
+        }
+
+        /* ===== MUSIC BUTTON ===== */
+
+        .music-btn {
+            position: fixed;
+
+            left: 20px;
+            bottom: 20px;
+
+            z-index: 2000;
+
+            padding: 13px 18px;
+
+            border-radius: 12px;
+
+            border: 1px solid #343545;
+
+            background: #151620;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .music-btn:hover {
+            border-color: #5865F2;
+
+            transform: translateY(-3px);
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            color: #666;
+
+            border-top: 1px solid #20212b;
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rules-header h2 {
+                font-size: 34px;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .music-btn {
+                left: 12px;
+                bottom: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+
+    <header>
+
+        <div class="logo">
+            الزرازير
+        </div>
+
+        <nav>
+
+            <a href="#home">
+                الرئيسية
+            </a>
+
+            <a href="#features">
+                المميزات
+            </a>
+
+            <a href="#rules">
+                القوانين
+            </a>
+
+            <a href="#join">
+                الديسكورد
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ===== HOME ===== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                DISCORD COMMUNITY
+            </div>
+
+            <h1>
+                مرحباً بك في
+                <span>الزرازير</span>
+            </h1>
+
+            <p>
+                مجتمع ديسكورد مميز يجمع اللاعبين والأصدقاء
+                في مكان واحد. انضم إلينا وكن جزءاً من مجتمعنا.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="btn discord"
+                    href="https://discord.gg/NR9bmYZP7"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    انضم إلى الديسكورد
+                </a>
+
+                <a
+                    class="btn more"
+                    href="#features"
+                >
+                    اكتشف الموقع
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== FEATURES ===== -->
+
+    <section id="features">
+
+        <div class="section-title">
+
+            <h2>
+                لماذا <span>الزرازير؟</span>
+            </h2>
+
+            <p>
+                كل ما تحتاجه في مجتمع واحد
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">
+                    🎮
+                </div>
+
+                <h3>
+                    مجتمع اللاعبين
+                </h3>
+
+                <p>
+                    مكان يجمع اللاعبين للتواصل
+                    واللعب والاستمتاع مع الأصدقاء.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    حماية وتنظيم
+                </h3>
+
+                <p>
+                    مجتمع منظم مع قوانين واضحة
+                    للحفاظ على تجربة أفضل للجميع.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🔥
+                </div>
+
+                <h3>
+                    فعاليات مستمرة
+                </h3>
+
+                <p>
+                    شارك في الفعاليات والأنشطة
+                    واستمتع بأجواء المجتمع.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== RULES ===== -->
+
+    <section class="rules" id="rules">
+
+        <div class="rules-header">
+
+            <span class="rules-badge">
+                SERVER RULES
+            </span>
+
+            <h2>
+                قوانين
+                <span>الزرازير</span>
+            </h2>
+
+            <p>
+                وجودك معنا يعني موافقتك على القوانين التالية.
+                هدفنا مجتمع محترم ومنظم وممتع للجميع.
+            </p>
+
+        </div>
+
+
+        <div class="rules-grid">
+
+
+            <article class="rule">
+
+                <div class="rule-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        🤝 الاحترام أولاً
+                    </h3>
+
+                    <p>
+                        احترم جميع الأعضاء.
+                        يمنع التنمر أو الإهانة أو الاستفزاز
+                        المتعمد أو افتعال المشاكل.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="rule">
+
+                <div class="rule-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        💬 استخدم الشات بشكل صحيح
+                    </h3>
+
+                    <p>
+                        ممنوع السبام أو تكرار الرسائل
+                        أو الإزعاج، واستخدم كل قناة
+                        في الغرض المخصص لها.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="rule">
+
+                <div class="rule-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        🚫 ممنوع الغش والاستغلال
+                    </h3>
+
+                    <p>
+                        يمنع استخدام الغش أو استغلال
+                        الثغرات أو أي وسيلة تضر
+                        بتجربة باقي اللاعبين.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="rule">
+
+                <div class="rule-number">
+                    04
+                </div>
+
+                <div>
+
+                    <h3>
+                        📢 ممنوع الإعلانات بدون إذن
+                    </h3>
+
+                    <p>
+                        لا تنشر إعلانات أو روابط
+                        سيرفرات ومجتمعات أخرى
+                        بدون موافقة الإدارة.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="rule">
+
+                <div class="rule-number">
+                    05
+                </div>
+
+                <div>
+
+                    <h3>
+                        🔒 احترام الخصوصية
+                    </h3>
+
+                    <p>
+                        ممنوع نشر معلومات شخصية
+                        أو صور أو محادثات خاصة لأي
+                        عضو بدون موافقته.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="rule">
+
+                <div class="rule-number">
+                    06
+                </div>
+
+                <div>
+
+                    <h3>
+                        🛡️ التزم بتعليمات الإدارة
+                    </h3>
+
+                    <p>
+                        اتبع تعليمات طاقم الإدارة،
+                        وإذا كان لديك اعتراض يمكنك
+                        التواصل معهم بهدوء.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="rule">
+
+                <div class="rule-number">
+                    07
+                </div>
+
+                <div>
+
+                    <h3>
+                        🔐 حافظ على أمان السيرفر
+                    </h3>
+
+                    <p>
+                        ممنوع نشر ملفات أو روابط
+                        مشبوهة أو محاولة الإضرار
+                        بالسيرفر أو بالأعضاء.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="rule">
+
+                <div class="rule-number">
+                    08
+                </div>
+
+                <div>
+
+                    <h3>
+                        ⚠️ العقوبات
+                    </h3>
+
+                    <p>
+                        مخالفة القوانين قد تؤدي إلى
+                        تحذير أو كتم أو طرد أو حظر
+                        حسب نوع المخالفة وتكرارها.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="rules-note">
+
+            <strong>
+                ⚠️ ملاحظة مهمة
+            </strong>
+
+            <p>
+                الإدارة تحتفظ بحق اتخاذ الإجراء المناسب
+                تجاه أي تصرف يضر بالمجتمع حتى لو لم
+                يُذكر حرفياً في القوانين.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== JOIN ===== -->
+
+    <section class="join" id="join">
+
+        <h2>
+            جاهز تنضم؟
+        </h2>
+
+        <p>
+            اضغط على الزر وانضم إلى مجتمع الزرازير
+        </p>
+
+        <a
+            class="btn discord"
+            href="https://discord.gg/NR9bmYZP7"
+            target="_blank"
+            rel="noopener"
+        >
+            دخول سيرفر Discord
+        </a>
+
+    </section>
+
+
+    <!-- ===== MUSIC ===== -->
+
+    <button
+        class="music-btn"
+        id="musicBtn"
+        type="button"
+    >
+        🎵 تشغيل الموسيقى
+    </button>
+
+
+    <audio
+        id="bgMusic"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="music.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- ===== FOOTER ===== -->
+
+    <footer>
+
+        © 2026 الزرازير — جميع الحقوق محفوظة
+
+    </footer>
+
+
+    <!-- ===== JAVASCRIPT ===== -->
+
+    <script>
+
+        const music =
+            document.getElementById("bgMusic");
+
+        const musicBtn =
+            document.getElementById("musicBtn");
+
+
+        musicBtn.addEventListener(
+            "click",
+            async function () {
+
+                if (music.paused) {
+
+                    try {
+
+                        await music.play();
+
+                        musicBtn.textContent =
+                            "🔇 إيقاف الموسيقى";
+
+                    } catch (error) {
+
+                        musicBtn.textContent =
+                            "🎵 اضغط للتشغيل";
+
+                    }
+
+                } else {
+
+                    music.pause();
+
+                    musicBtn.textContent =
+                        "🎵 تشغيل الموسيقى";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+                  </html>
